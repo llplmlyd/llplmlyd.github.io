@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Linux," />
 
 
 
@@ -79,16 +79,25 @@
 
 
 
-<meta name="description" content="攻城狮基地">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Plus Ultra">
-<meta property="og:url" content="http://yoursite.com/tags/Star/index.html">
+<meta name="description" content="RAID0 - 条带化，串連 (Striping) 硬盘数&amp;gt;=2定义 多磁盘数据分组同步读写 读写速度为单盘的X倍RAID级别中的存储性能最高。将多个磁盘并列起来，成为一个大磁盘 raid0，将连续的数据分散到多个磁盘上存取，系统有数据请求就可以被多个磁盘并行的执行，每个磁盘执行属于它自己的那部分数据请求。这种数据上的并行操作可以充分利用总线的带宽，显著提高磁盘整体存取性能。raid功能中s">
+<meta name="keywords" content="Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于Raid0,Raid1,Raid3,Raid5(6),Raid10（0+1&#x2F;1+0）的总结">
+<meta property="og:url" content="http://yoursite.com/2018/09/15/关于Raid0,Raid1,Raid3,Raid5(6),Raid10（0+1_1+0）的总结/index.html">
 <meta property="og:site_name" content="Plus Ultra">
-<meta property="og:description" content="攻城狮基地">
+<meta property="og:description" content="RAID0 - 条带化，串連 (Striping) 硬盘数&amp;gt;=2定义 多磁盘数据分组同步读写 读写速度为单盘的X倍RAID级别中的存储性能最高。将多个磁盘并列起来，成为一个大磁盘 raid0，将连续的数据分散到多个磁盘上存取，系统有数据请求就可以被多个磁盘并行的执行，每个磁盘执行属于它自己的那部分数据请求。这种数据上的并行操作可以充分利用总线的带宽，显著提高磁盘整体存取性能。raid功能中s">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://www.freebsd.org/doc/zh_TW/books/handbook/geom/striping.png">
+<meta property="og:image" content="https://img-blog.csdn.net/20170225143536108?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvU3B1ZXJfSU8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://ww2.sinaimg.cn/mw690/7178f37egw1eoohf6eqr3j20dc04y75j.jpg">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/576154/201611/576154-20161124225904331-1146819836.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/7178f37egw1eoohf822ggj206y062dgr.jpg">
+<meta property="og:image" content="http://ww4.sinaimg.cn/mw690/7178f37egw1eoohf594gvj207806bq3u.jpg">
+<meta property="og:updated_time" content="2018-09-15T16:45:43.265Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Plus Ultra">
-<meta name="twitter:description" content="攻城狮基地">
+<meta name="twitter:title" content="关于Raid0,Raid1,Raid3,Raid5(6),Raid10（0+1&#x2F;1+0）的总结">
+<meta name="twitter:description" content="RAID0 - 条带化，串連 (Striping) 硬盘数&amp;gt;=2定义 多磁盘数据分组同步读写 读写速度为单盘的X倍RAID级别中的存储性能最高。将多个磁盘并列起来，成为一个大磁盘 raid0，将连续的数据分散到多个磁盘上存取，系统有数据请求就可以被多个磁盘并行的执行，每个磁盘执行属于它自己的那部分数据请求。这种数据上的并行操作可以充分利用总线的带宽，显著提高磁盘整体存取性能。raid功能中s">
+<meta name="twitter:image" content="https://www.freebsd.org/doc/zh_TW/books/handbook/geom/striping.png">
 
 
 
@@ -118,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Star/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/15/关于Raid0,Raid1,Raid3,Raid5(6),Raid10（0+1_1+0）的总结/"/>
 
 
 
 
 
-  <title>标签: Star | Plus Ultra</title>
+  <title>关于Raid0,Raid1,Raid3,Raid5(6),Raid10（0+1/1+0）的总结 | Plus Ultra</title>
   
 
 
@@ -143,7 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -281,54 +290,217 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Star<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/15/关于Raid0,Raid1,Raid3,Raid5(6),Raid10（0+1_1+0）的总结/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lollipop">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/site-author-image.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Plus Ultra">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/08/08/Star/" itemprop="url">
-              
-                <span itemprop="name">Star</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">关于Raid0,Raid1,Raid3,Raid5(6),Raid10（0+1/1+0）的总结</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-08T16:29:23+08:00"
-              content="2018-08-08" >
-          08-08
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-15T12:12:59+08:00">
+                2018-09-15
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Note/" itemprop="url" rel="index">
+                    <span itemprop="name">Note</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/15/关于Raid0,Raid1,Raid3,Raid5(6),Raid10（0+1_1+0）的总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/15/关于Raid0,Raid1,Raid3,Raid5(6),Raid10（0+1_1+0）的总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/15/关于Raid0,Raid1,Raid3,Raid5(6),Raid10（0+1_1+0）的总结/" class="leancloud_visitors" data-flag-title="关于Raid0,Raid1,Raid3,Raid5(6),Raid10（0+1/1+0）的总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"> 总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="RAID0-条带化，串連-Striping-硬盘数-gt-2"><a href="#RAID0-条带化，串連-Striping-硬盘数-gt-2" class="headerlink" title="RAID0 - 条带化，串連 (Striping) 硬盘数&gt;=2"></a><a href="https://www.freebsd.org/doc/zh_TW/books/handbook/geom-striping.html" target="_blank" rel="noopener"><code>RAID0 - 条带化，串連 (Striping) 硬盘数&gt;=2</code></a></h2><h3 id="定义-多磁盘数据分组同步读写-读写速度为单盘的X倍"><a href="#定义-多磁盘数据分组同步读写-读写速度为单盘的X倍" class="headerlink" title="定义 多磁盘数据分组同步读写 读写速度为单盘的X倍"></a>定义 多磁盘数据分组同步读写 读写速度为单盘的X倍</h3><p>RAID级别中的存储性能最高。将多个磁盘并列起来，成为一个大磁盘 <code>raid0</code>，将连续的数据分散到多个磁盘上存取，系统有数据请求就可以被多个磁盘并行的执行，每个磁盘执行属于它自己的那部分数据请求。这种数据上的并行操作可以充分利用总线的带宽，显著提高磁盘整体存取性能。<br><a href="https://blog.csdn.net/mao0514/article/details/38519027" target="_blank" rel="noopener">raid功能中spanning和striping模式有什么区别?</a><br><img src="https://www.freebsd.org/doc/zh_TW/books/handbook/geom/striping.png" alt="此处输入图片的描述"></p>
+<h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p>系统向三个磁盘组成的逻辑硬盘（RAID0磁盘组）发出的I/O数据请求被转化为3项操作，其中的每一项操作都对应于一块物理硬盘。通过建立RAID 0，原先顺序的数据请求被分散到所有的三块硬盘中同时执行。从理论上讲，三块硬盘的并行操作使同一时间内磁盘读写速度提升了3倍。 但由于总线带宽等多种因素的影响，实际的提升速率肯定会低于理论值，但是，大量数据并行传输与串行传输比较，提速效果显著显然毋庸置疑。</p>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>1、读写性能高，非常适合于视频、图像的制作和编辑<br>2、安全性能低，不支持数据冗余，无容错功能，不适用于关键任务环境<br>3、磁盘空间使用率：100%，成本最低<br>4、在 RAID0 串連中的每個磁碟必須要相同大小</p>
+<h2 id="RAID1-Block-鏡像-Mirroring-硬盘数-gt-2"><a href="#RAID1-Block-鏡像-Mirroring-硬盘数-gt-2" class="headerlink" title="RAID1 - Block 鏡像 (Mirroring) 硬盘数&gt;=2"></a><a href="https://www.freebsd.org/doc/zh_TW/books/handbook/geom-mirror.html" target="_blank" rel="noopener"><code>RAID1 - Block 鏡像 (Mirroring) 硬盘数&gt;=2</code></a></h2><h3 id="定义-多磁盘同数据同步写读-读写速度与单盘相同"><a href="#定义-多磁盘同数据同步写读-读写速度与单盘相同" class="headerlink" title="定义 多磁盘同数据同步写读 读写速度与单盘相同"></a>定义 多磁盘同数据同步写读 读写速度与单盘相同</h3><p>RAID 1通过磁盘数据镜像实现数据冗余，在成对的独立磁盘上产生互为备份的数据。当原始数据繁忙时，可直接从镜像拷贝中读取数据，因此RAID 1可以提高读取性能。</p>
+<h3 id="工作原理-1"><a href="#工作原理-1" class="headerlink" title="工作原理"></a>工作原理</h3><p>将一个两块硬盘所构成RAID磁盘阵列，其容量仅等于一块硬盘的容量，因为另一块只是当作数据“镜像”。读只能在一块磁盘上进行，并不会进行并行读取，性能取决于硬盘中较快的一块。写的话通常比单块磁盘要慢，虽然是并行写，即对两块磁盘的写入是同时进行的，但因为要比较两块硬盘中的数据，所以性能比单块磁盘慢。<br><img src="https://img-blog.csdn.net/20170225143536108?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvU3B1ZXJfSU8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="此处输入图片的描述"></p>
+<h3 id="优缺点-1"><a href="#优缺点-1" class="headerlink" title="优缺点"></a>优缺点</h3><p>1、磁盘的利用率却只有50%，磁盘利用率最低，成本最高<br>2、数据冗余备份，容错，数据安全性高；当故障发生时，系统可自动切换到镜像磁盘，无需重组数据<br>3、读性能：只能在一个磁盘上读取，取决于磁盘中较快的那块盘<br>4、写性能：两块磁盘都要写入，虽然是并行写入，但因为要比对，故性能单块磁盘慢。<br>5、支持“热交换”，就是说阵列中硬盘的移除或替换可以在系统运行时进行，无须中断退出系统。</p>
+<h2 id="RAID3-位元級串連與獨立奇偶校驗-校验存储与一个盘-硬盘数-gt-3"><a href="#RAID3-位元級串連與獨立奇偶校驗-校验存储与一个盘-硬盘数-gt-3" class="headerlink" title="RAID3 - 位元級串連與獨立奇偶校驗 校验存储与一个盘 硬盘数&gt;=3"></a><a href="https://www.freebsd.org/doc/zh_TW/books/handbook/geom-raid3.html" target="_blank" rel="noopener"><code>RAID3 - 位元級串連與獨立奇偶校驗 校验存储与一个盘 硬盘数&gt;=3</code></a></h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>RAID 3是把数据分成多个“块”，按照一定的容错算法，存放在N+1个硬盘上，实际数据占用的有效空间为N个硬盘的空间总和，而第N+1个硬盘上存储的数据是校验容错信息</p>
+<h3 id="工作原理-2"><a href="#工作原理-2" class="headerlink" title="工作原理"></a>工作原理</h3><p><img src="http://ww2.sinaimg.cn/mw690/7178f37egw1eoohf6eqr3j20dc04y75j.jpg" alt="此处输入图片的描述"><br>当这N+1个硬盘中的其中一个硬盘出现故障时，从其它N个硬盘中的数据也可以恢复原始数据，这样，仅使用这N个硬盘也可以带伤继续工作（如采集和回放素材），当更换一个新硬盘后，系统可以重新恢复完整的校验容错信息。由于在一个硬盘阵列中，多于一个硬盘同时出现故障率的几率很小，所以一般情况下，使用RAID3，安全性是可以得到保障的。</p>
+<h3 id="优缺点-2"><a href="#优缺点-2" class="headerlink" title="优缺点"></a>优缺点</h3><p>1、写入操作多磁盘并行进行，但每个数据盘写入数据，都需要同时重写校验盘中的相关信息，经常执行写入，会导致校验盘负载压力大<br>2、更加适合应用于那些写入操作较少，读取操作较多的应用环境，例如 数据库和WEB服务器等</p>
+<h2 id="Raid5-分布式奇偶校验-硬盘数-gt-3"><a href="#Raid5-分布式奇偶校验-硬盘数-gt-3" class="headerlink" title="Raid5 分布式奇偶校验 硬盘数&gt;=3"></a><code>Raid5 分布式奇偶校验 硬盘数&gt;=3</code></h2><p><img src="https://images2015.cnblogs.com/blog/576154/201611/576154-20161124225904331-1146819836.jpg" alt="此处输入图片的描述"></p>
+<h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>RAID 5是RAID 0和RAID1的折中方案。RAID5具有和RAID0相近似的数据读取速度，只是多了一个奇偶校验信息，写入数据的速度比对单个磁盘进行写入操作稍慢。</p>
+<h3 id="工作原理-3"><a href="#工作原理-3" class="headerlink" title="工作原理"></a>工作原理</h3><p>RAID5把数据和相对应的奇偶校验信息存储到组成RAID5的各个磁盘上，并且是分别存储于不同的磁盘上，其中任意N-1块磁盘上都存储完整的数据，也就是说有相当于一块磁盘容量的空间用于存储奇偶校验信息。当RAID5的一个磁盘发生损坏后，不会影响数据的完整性，从而保证了数据安全。当损坏的磁盘被替换后，RAID还会自动利用剩下奇偶校验信息去重建此磁盘上的数据，来保持RAID5的高可靠性。</p>
+<h3 id="优缺点-3"><a href="#优缺点-3" class="headerlink" title="优缺点"></a>优缺点</h3><p>1、磁盘空间利用率：(N-1)/N，即只浪费一块磁盘用于奇偶校验。存储成本相对较低<br>2、(n-1)*单块磁盘的读性能，和RAID0相近似的数据读取速度<br>3、写入数据的速度比对单个磁盘进行写入操作稍慢<br>4、高可靠性。奇偶校检与数据分别都存储不同盘，损坏时，可以自动重建。只允许一块磁盘损坏。</p>
+<p>附 <code>Raid6</code><br>类似RAID5两组奇偶校验信息块，两个独立的奇偶系统使用不同的算法， 数据的可靠性非常高，即使两块磁盘同时失效也不会影响数据的使用。相对于RAID 5有更大的“写损失”，因此“写性能”非常差。</p>
+<h2 id="Raid10：RAID1-0和RAID0-1-硬盘-gt-4-偶数）"><a href="#Raid10：RAID1-0和RAID0-1-硬盘-gt-4-偶数）" class="headerlink" title="Raid10：RAID1+0和RAID0+1    硬盘&gt;=4 (偶数）"></a><code>Raid10：RAID1+0和RAID0+1    硬盘&gt;=4 (偶数）</code></h2><p><code>Raid10 镜象阵列条带</code> 先做镜像(1)，再做条带(0)<br><strong>可以理解为两个raid0同步</strong><br><img src="http://ww1.sinaimg.cn/mw690/7178f37egw1eoohf822ggj206y062dgr.jpg" alt="此处输入图片的描述"><br><code>Raid01</code> 先做条带(0)，再做镜像(1)<br><img src="http://ww4.sinaimg.cn/mw690/7178f37egw1eoohf594gvj207806bq3u.jpg" alt="此处输入图片的描述"></p>
+<h3 id="工作原理-4"><a href="#工作原理-4" class="headerlink" title="工作原理"></a>工作原理</h3><p>Raid10其实结构非常简单，首先创建2个独立的Raid1，然后将这两个独立的Raid1组成一个Raid0，当往这个逻辑Raid中写数据时，数据被有序的写入两个Raid1中。磁盘1和磁盘2组成一个Raid1，磁盘3和磁盘4又组成另外一个Raid1;这两个Raid1组成了一个新的Raid0。</p>
+<h3 id="优缺点："><a href="#优缺点：" class="headerlink" title="优缺点："></a>优缺点：</h3><p>1、磁盘利用率50% 成本较高<br>2、<strong>安全性上RAID10要好于 RAID01</strong>，如图中所示，假设DISK0损坏，在RAID10中，只有DISK1 故障，整个RAID才失效。故障率为1/3。但在RAID01中，DISK0损坏后，左边的条带将无法读取，<strong>DISK2或DISK3两个盘中任何一个损坏</strong>，都会导致RAID失效。故障率2/3。<br>3、RAID01比起RAID10有着更快的读写速度</p>
+<h2 id="Raid10-与-Raid5-比较"><a href="#Raid10-与-Raid5-比较" class="headerlink" title="Raid10 与 Raid5 比较"></a>Raid10 与 Raid5 比较</h2><p>1、<a href="http://blog.51cto.com/jiebers/1334486" target="_blank" rel="noopener">RAID5和RAID10，哪种RAID更适合你(上)</a><br>2、<a href="http://blog.51cto.com/jiebers/1334487" target="_blank" rel="noopener">RAID5和RAID10，哪种RAID更适合你(下)</a></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://www.cnblogs.com/ivictor/p/6099807.html" target="_blank" rel="noopener">https://www.cnblogs.com/ivictor/p/6099807.html</a><br><a href="http://blog.jobbole.com/83808/" target="_blank" rel="noopener">http://blog.jobbole.com/83808/</a><br><a href="https://blog.csdn.net/spuer_io/article/details/57080239" target="_blank" rel="noopener">https://blog.csdn.net/spuer_io/article/details/57080239</a><br><a href="https://www.freebsd.org/doc/zh_TW/books/handbook/geom.html" target="_blank" rel="noopener">https://www.freebsd.org/doc/zh_TW/books/handbook/geom.html</a><br><a href="http://blog.51cto.com/jiebers/1334486" target="_blank" rel="noopener">http://blog.51cto.com/jiebers/1334486</a><br><a href="http://blog.51cto.com/jiebers/1334487" target="_blank" rel="noopener">http://blog.51cto.com/jiebers/1334487</a></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/10/XPath/" rel="next" title="XPath">
+                <i class="fa fa-chevron-left"></i> XPath
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/15/正则表达式/" rel="prev" title="正则表达式">
+                正则表达式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -336,6 +508,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -356,8 +535,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -376,7 +564,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -387,7 +575,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -463,6 +651,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#RAID0-条带化，串連-Striping-硬盘数-gt-2"><span class="nav-number">1.</span> <span class="nav-text">RAID0 - 条带化，串連 (Striping) 硬盘数&gt;=2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义-多磁盘数据分组同步读写-读写速度为单盘的X倍"><span class="nav-number">1.1.</span> <span class="nav-text">定义 多磁盘数据分组同步读写 读写速度为单盘的X倍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作原理"><span class="nav-number">1.2.</span> <span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点"><span class="nav-number">1.3.</span> <span class="nav-text">优缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RAID1-Block-鏡像-Mirroring-硬盘数-gt-2"><span class="nav-number">2.</span> <span class="nav-text">RAID1 - Block 鏡像 (Mirroring) 硬盘数&gt;=2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义-多磁盘同数据同步写读-读写速度与单盘相同"><span class="nav-number">2.1.</span> <span class="nav-text">定义 多磁盘同数据同步写读 读写速度与单盘相同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作原理-1"><span class="nav-number">2.2.</span> <span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点-1"><span class="nav-number">2.3.</span> <span class="nav-text">优缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RAID3-位元級串連與獨立奇偶校驗-校验存储与一个盘-硬盘数-gt-3"><span class="nav-number">3.</span> <span class="nav-text">RAID3 - 位元級串連與獨立奇偶校驗 校验存储与一个盘 硬盘数&gt;=3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义"><span class="nav-number">3.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作原理-2"><span class="nav-number">3.2.</span> <span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点-2"><span class="nav-number">3.3.</span> <span class="nav-text">优缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Raid5-分布式奇偶校验-硬盘数-gt-3"><span class="nav-number">4.</span> <span class="nav-text">Raid5 分布式奇偶校验 硬盘数&gt;=3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义-1"><span class="nav-number">4.1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作原理-3"><span class="nav-number">4.2.</span> <span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点-3"><span class="nav-number">4.3.</span> <span class="nav-text">优缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Raid10：RAID1-0和RAID0-1-硬盘-gt-4-偶数）"><span class="nav-number">5.</span> <span class="nav-text">Raid10：RAID1+0和RAID0+1    硬盘&gt;=4 (偶数）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#工作原理-4"><span class="nav-number">5.1.</span> <span class="nav-text">工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优缺点："><span class="nav-number">5.2.</span> <span class="nav-text">优缺点：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Raid10-与-Raid5-比较"><span class="nav-number">6.</span> <span class="nav-text">Raid10 与 Raid5 比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">7.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -616,6 +820,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

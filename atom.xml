@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-08-13T04:40:12.409Z</updated>
+  <updated>2018-09-15T16:56:34.928Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,82 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>正则表达式</title>
+    <link href="http://yoursite.com/2018/09/15/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <id>http://yoursite.com/2018/09/15/正则表达式/</id>
+    <published>2018-09-15T15:12:29.000Z</published>
+    <updated>2018-09-15T16:56:34.928Z</updated>
+    
+    <content type="html"><![CDATA[<p>一个正则表达式通常被称为一个模式（pattern）</p><h2 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h2><h3 id="选择"><a href="#选择" class="headerlink" title="选择"></a>选择</h3><p>竖线|代表选择（即或集），具有最低优先级。例如gray|grey可以匹配grey或gray</p><h3 id="数量限定-、-和"><a href="#数量限定-、-和" class="headerlink" title="数量限定+、?和*"></a>数量限定+、?和*</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">加号+代表前面的字符必须至少出现一次。（1次或多次）。例如，goo+gle可以匹配google、gooogle、goooogle等;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">问号?代表前面的字符最多只可以出现一次。（0次或1次）。例如，colou?r可以匹配color或者colour;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">星号*代表前面的字符可以不出现，也可以出现一次或者多次。（0次、1次或多次）。例如，0*42可以匹配42、042、0042、00042等。</span><br></pre></td></tr></table></figure><h3 id="匹配"><a href="#匹配" class="headerlink" title="匹配"></a>匹配</h3><p>圆括号()可以用来定义操作符的范围和优先度<br>例如，gr(a|e)y等价于gray|grey<br>要做更精确地匹配，可以用[]表示范围</p><p><strong>[0-9a-zA-Z_]</strong>可以匹配一个数字、字母或者下划线；<br><strong>[0-9a-zA-Z_]+</strong>可以匹配至少由一个数字、字母或者下划线组成的字符串，比如’a100’，’0_Z’，’Py3000’等等；<br><strong>[a-zA-Z_][0-9a-zA-Z_]*</strong>可以匹配由字母或下划线开头，后接任意个由一个数字、字母或者下划线组成的字符串，也就是Python合法的变量；<br><strong>[a-zA-Z_][0-9a-zA-Z_]{0, 19}</strong>更精确地限制了变量的长度是1-20个字符（前面1个字符+后面最多19个字符）。</p><h3 id="表达式全集"><a href="#表达式全集" class="headerlink" title="表达式全集"></a>表达式全集</h3><p>适用于Perl或者Python编程语言（grep或者egrep的正则表达式文法是PCRE的子集）：</p><table><thead><tr><th style="text-align:center"></th><th style="text-align:center">\</th><th>“\n”匹配一个换行符。序列“\”匹配“\”而“(”则匹配“(”</th></tr></thead><tbody><tr><td style="text-align:center">^</td><td style="text-align:center">匹配输入字符串的开始位置</td></tr><tr><td style="text-align:center">$</td><td style="text-align:center">匹配输入字符串的结束位置</td></tr><tr><td style="text-align:center">{n}</td><td style="text-align:center">n是一个非负整数。匹配确定的n次。例如，“o{2}”不能匹配“Bob”中的“o”，但是能匹配“food”中的两个o。</td></tr><tr><td style="text-align:center">{n,}</td><td style="text-align:center">n是一个非负整数。至少匹配n次。例如，“o{2,}”不能匹配“Bob”中的“o”，但能匹配“foooood”中的所有o。“o{1,}”等价于“o+”。“o{0,}”则等价于“o*”。</td></tr><tr><td style="text-align:center">{n,m}</td><td style="text-align:center">m和n均为非负整数，其中n&lt;=m。最少匹配n次且最多匹配m次。</td></tr><tr><td style="text-align:center">.</td><td style="text-align:center">匹配除“\r”“\n”之外的任何单个字符。要匹配包括“\r”“\n”在内的任何字符，请使用像“(.</td><td>\r</td><td>\n)”的模式。</td></tr><tr><td style="text-align:center">(?:pattern)</td><td style="text-align:center">匹配pattern但不获取匹配的子字符串（shy groups），也就是说这是一个非获取匹配，不存储匹配的子字符串用于向后引用。这在使用或字符“(</td><td>)”来组合一个模式的各个部分是很有用。例如“industr(?:y</td><td>ies)”就是一个比“industry</td><td>industries”更简略的表达式。</td></tr><tr><td style="text-align:center">[xyz]</td><td style="text-align:center">字符集合（character class）。匹配所包含的任意一个字符。例如，“[abc]”可以匹配“plain”中的“a”。</td></tr><tr><td style="text-align:center">[^xyz]</td><td style="text-align:center">排除型字符集合（negated character classes）。</td></tr><tr><td style="text-align:center">[a-z]</td><td style="text-align:center">字符范围。匹配指定范围内的任意字符。</td></tr><tr><td style="text-align:center">\d</td><td style="text-align:center">匹配一个数字字符。</td></tr><tr><td style="text-align:center">\D</td><td style="text-align:center">匹配一个非数字字符。</td></tr><tr><td style="text-align:center">\f</td><td style="text-align:center">匹配一个换页符。</td></tr><tr><td style="text-align:center">\n</td><td style="text-align:center">匹配一个换行符。</td></tr><tr><td style="text-align:center">\r</td><td style="text-align:center">匹配一个回车符</td></tr><tr><td style="text-align:center">\s</td><td style="text-align:center">匹配任何空白字符，</td></tr><tr><td style="text-align:center">\S</td><td style="text-align:center">匹配任何非空白字符</td></tr><tr><td style="text-align:center">\t</td><td style="text-align:center">匹配一个制表符</td></tr><tr><td style="text-align:center">\v</td><td style="text-align:center">匹配一个垂直制表符。</td></tr></tbody></table><p><code>https://zh.wikipedia.org/wiki/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F</code><br>正则匹配URL：[a-zA-z]+://[^\s]*</p><p><code>正则测试网站：http://tool.oschina.net/regex#</code></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;一个正则表达式通常被称为一个模式（pattern）&lt;/p&gt;
+&lt;h2 id=&quot;基本语法&quot;&gt;&lt;a href=&quot;#基本语法&quot; class=&quot;headerlink&quot; title=&quot;基本语法&quot;&gt;&lt;/a&gt;基本语法&lt;/h2&gt;&lt;h3 id=&quot;选择&quot;&gt;&lt;a href=&quot;#选择&quot; class=
+      
+    
+    </summary>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于Raid0,Raid1,Raid3,Raid5(6),Raid10（0+1/1+0）的总结</title>
+    <link href="http://yoursite.com/2018/09/15/%E5%85%B3%E4%BA%8ERaid0,Raid1,Raid3,Raid5(6),Raid10%EF%BC%880+1_1+0%EF%BC%89%E7%9A%84%E6%80%BB%E7%BB%93/"/>
+    <id>http://yoursite.com/2018/09/15/关于Raid0,Raid1,Raid3,Raid5(6),Raid10（0+1_1+0）的总结/</id>
+    <published>2018-09-15T04:12:59.000Z</published>
+    <updated>2018-09-15T16:45:43.265Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="RAID0-条带化，串連-Striping-硬盘数-gt-2"><a href="#RAID0-条带化，串連-Striping-硬盘数-gt-2" class="headerlink" title="RAID0 - 条带化，串連 (Striping) 硬盘数&gt;=2"></a><a href="https://www.freebsd.org/doc/zh_TW/books/handbook/geom-striping.html" target="_blank" rel="noopener"><code>RAID0 - 条带化，串連 (Striping) 硬盘数&gt;=2</code></a></h2><h3 id="定义-多磁盘数据分组同步读写-读写速度为单盘的X倍"><a href="#定义-多磁盘数据分组同步读写-读写速度为单盘的X倍" class="headerlink" title="定义 多磁盘数据分组同步读写 读写速度为单盘的X倍"></a>定义 多磁盘数据分组同步读写 读写速度为单盘的X倍</h3><p>RAID级别中的存储性能最高。将多个磁盘并列起来，成为一个大磁盘 <code>raid0</code>，将连续的数据分散到多个磁盘上存取，系统有数据请求就可以被多个磁盘并行的执行，每个磁盘执行属于它自己的那部分数据请求。这种数据上的并行操作可以充分利用总线的带宽，显著提高磁盘整体存取性能。<br><a href="https://blog.csdn.net/mao0514/article/details/38519027" target="_blank" rel="noopener">raid功能中spanning和striping模式有什么区别?</a><br><img src="https://www.freebsd.org/doc/zh_TW/books/handbook/geom/striping.png" alt="此处输入图片的描述"></p><h3 id="工作原理"><a href="#工作原理" class="headerlink" title="工作原理"></a>工作原理</h3><p>系统向三个磁盘组成的逻辑硬盘（RAID0磁盘组）发出的I/O数据请求被转化为3项操作，其中的每一项操作都对应于一块物理硬盘。通过建立RAID 0，原先顺序的数据请求被分散到所有的三块硬盘中同时执行。从理论上讲，三块硬盘的并行操作使同一时间内磁盘读写速度提升了3倍。 但由于总线带宽等多种因素的影响，实际的提升速率肯定会低于理论值，但是，大量数据并行传输与串行传输比较，提速效果显著显然毋庸置疑。</p><h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><p>1、读写性能高，非常适合于视频、图像的制作和编辑<br>2、安全性能低，不支持数据冗余，无容错功能，不适用于关键任务环境<br>3、磁盘空间使用率：100%，成本最低<br>4、在 RAID0 串連中的每個磁碟必須要相同大小</p><h2 id="RAID1-Block-鏡像-Mirroring-硬盘数-gt-2"><a href="#RAID1-Block-鏡像-Mirroring-硬盘数-gt-2" class="headerlink" title="RAID1 - Block 鏡像 (Mirroring) 硬盘数&gt;=2"></a><a href="https://www.freebsd.org/doc/zh_TW/books/handbook/geom-mirror.html" target="_blank" rel="noopener"><code>RAID1 - Block 鏡像 (Mirroring) 硬盘数&gt;=2</code></a></h2><h3 id="定义-多磁盘同数据同步写读-读写速度与单盘相同"><a href="#定义-多磁盘同数据同步写读-读写速度与单盘相同" class="headerlink" title="定义 多磁盘同数据同步写读 读写速度与单盘相同"></a>定义 多磁盘同数据同步写读 读写速度与单盘相同</h3><p>RAID 1通过磁盘数据镜像实现数据冗余，在成对的独立磁盘上产生互为备份的数据。当原始数据繁忙时，可直接从镜像拷贝中读取数据，因此RAID 1可以提高读取性能。</p><h3 id="工作原理-1"><a href="#工作原理-1" class="headerlink" title="工作原理"></a>工作原理</h3><p>将一个两块硬盘所构成RAID磁盘阵列，其容量仅等于一块硬盘的容量，因为另一块只是当作数据“镜像”。读只能在一块磁盘上进行，并不会进行并行读取，性能取决于硬盘中较快的一块。写的话通常比单块磁盘要慢，虽然是并行写，即对两块磁盘的写入是同时进行的，但因为要比较两块硬盘中的数据，所以性能比单块磁盘慢。<br><img src="https://img-blog.csdn.net/20170225143536108?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvU3B1ZXJfSU8=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="此处输入图片的描述"></p><h3 id="优缺点-1"><a href="#优缺点-1" class="headerlink" title="优缺点"></a>优缺点</h3><p>1、磁盘的利用率却只有50%，磁盘利用率最低，成本最高<br>2、数据冗余备份，容错，数据安全性高；当故障发生时，系统可自动切换到镜像磁盘，无需重组数据<br>3、读性能：只能在一个磁盘上读取，取决于磁盘中较快的那块盘<br>4、写性能：两块磁盘都要写入，虽然是并行写入，但因为要比对，故性能单块磁盘慢。<br>5、支持“热交换”，就是说阵列中硬盘的移除或替换可以在系统运行时进行，无须中断退出系统。</p><h2 id="RAID3-位元級串連與獨立奇偶校驗-校验存储与一个盘-硬盘数-gt-3"><a href="#RAID3-位元級串連與獨立奇偶校驗-校验存储与一个盘-硬盘数-gt-3" class="headerlink" title="RAID3 - 位元級串連與獨立奇偶校驗 校验存储与一个盘 硬盘数&gt;=3"></a><a href="https://www.freebsd.org/doc/zh_TW/books/handbook/geom-raid3.html" target="_blank" rel="noopener"><code>RAID3 - 位元級串連與獨立奇偶校驗 校验存储与一个盘 硬盘数&gt;=3</code></a></h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>RAID 3是把数据分成多个“块”，按照一定的容错算法，存放在N+1个硬盘上，实际数据占用的有效空间为N个硬盘的空间总和，而第N+1个硬盘上存储的数据是校验容错信息</p><h3 id="工作原理-2"><a href="#工作原理-2" class="headerlink" title="工作原理"></a>工作原理</h3><p><img src="http://ww2.sinaimg.cn/mw690/7178f37egw1eoohf6eqr3j20dc04y75j.jpg" alt="此处输入图片的描述"><br>当这N+1个硬盘中的其中一个硬盘出现故障时，从其它N个硬盘中的数据也可以恢复原始数据，这样，仅使用这N个硬盘也可以带伤继续工作（如采集和回放素材），当更换一个新硬盘后，系统可以重新恢复完整的校验容错信息。由于在一个硬盘阵列中，多于一个硬盘同时出现故障率的几率很小，所以一般情况下，使用RAID3，安全性是可以得到保障的。</p><h3 id="优缺点-2"><a href="#优缺点-2" class="headerlink" title="优缺点"></a>优缺点</h3><p>1、写入操作多磁盘并行进行，但每个数据盘写入数据，都需要同时重写校验盘中的相关信息，经常执行写入，会导致校验盘负载压力大<br>2、更加适合应用于那些写入操作较少，读取操作较多的应用环境，例如 数据库和WEB服务器等</p><h2 id="Raid5-分布式奇偶校验-硬盘数-gt-3"><a href="#Raid5-分布式奇偶校验-硬盘数-gt-3" class="headerlink" title="Raid5 分布式奇偶校验 硬盘数&gt;=3"></a><code>Raid5 分布式奇偶校验 硬盘数&gt;=3</code></h2><p><img src="https://images2015.cnblogs.com/blog/576154/201611/576154-20161124225904331-1146819836.jpg" alt="此处输入图片的描述"></p><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>RAID 5是RAID 0和RAID1的折中方案。RAID5具有和RAID0相近似的数据读取速度，只是多了一个奇偶校验信息，写入数据的速度比对单个磁盘进行写入操作稍慢。</p><h3 id="工作原理-3"><a href="#工作原理-3" class="headerlink" title="工作原理"></a>工作原理</h3><p>RAID5把数据和相对应的奇偶校验信息存储到组成RAID5的各个磁盘上，并且是分别存储于不同的磁盘上，其中任意N-1块磁盘上都存储完整的数据，也就是说有相当于一块磁盘容量的空间用于存储奇偶校验信息。当RAID5的一个磁盘发生损坏后，不会影响数据的完整性，从而保证了数据安全。当损坏的磁盘被替换后，RAID还会自动利用剩下奇偶校验信息去重建此磁盘上的数据，来保持RAID5的高可靠性。</p><h3 id="优缺点-3"><a href="#优缺点-3" class="headerlink" title="优缺点"></a>优缺点</h3><p>1、磁盘空间利用率：(N-1)/N，即只浪费一块磁盘用于奇偶校验。存储成本相对较低<br>2、(n-1)*单块磁盘的读性能，和RAID0相近似的数据读取速度<br>3、写入数据的速度比对单个磁盘进行写入操作稍慢<br>4、高可靠性。奇偶校检与数据分别都存储不同盘，损坏时，可以自动重建。只允许一块磁盘损坏。</p><p>附 <code>Raid6</code><br>类似RAID5两组奇偶校验信息块，两个独立的奇偶系统使用不同的算法， 数据的可靠性非常高，即使两块磁盘同时失效也不会影响数据的使用。相对于RAID 5有更大的“写损失”，因此“写性能”非常差。</p><h2 id="Raid10：RAID1-0和RAID0-1-硬盘-gt-4-偶数）"><a href="#Raid10：RAID1-0和RAID0-1-硬盘-gt-4-偶数）" class="headerlink" title="Raid10：RAID1+0和RAID0+1    硬盘&gt;=4 (偶数）"></a><code>Raid10：RAID1+0和RAID0+1    硬盘&gt;=4 (偶数）</code></h2><p><code>Raid10 镜象阵列条带</code> 先做镜像(1)，再做条带(0)<br><strong>可以理解为两个raid0同步</strong><br><img src="http://ww1.sinaimg.cn/mw690/7178f37egw1eoohf822ggj206y062dgr.jpg" alt="此处输入图片的描述"><br><code>Raid01</code> 先做条带(0)，再做镜像(1)<br><img src="http://ww4.sinaimg.cn/mw690/7178f37egw1eoohf594gvj207806bq3u.jpg" alt="此处输入图片的描述"></p><h3 id="工作原理-4"><a href="#工作原理-4" class="headerlink" title="工作原理"></a>工作原理</h3><p>Raid10其实结构非常简单，首先创建2个独立的Raid1，然后将这两个独立的Raid1组成一个Raid0，当往这个逻辑Raid中写数据时，数据被有序的写入两个Raid1中。磁盘1和磁盘2组成一个Raid1，磁盘3和磁盘4又组成另外一个Raid1;这两个Raid1组成了一个新的Raid0。</p><h3 id="优缺点："><a href="#优缺点：" class="headerlink" title="优缺点："></a>优缺点：</h3><p>1、磁盘利用率50% 成本较高<br>2、<strong>安全性上RAID10要好于 RAID01</strong>，如图中所示，假设DISK0损坏，在RAID10中，只有DISK1 故障，整个RAID才失效。故障率为1/3。但在RAID01中，DISK0损坏后，左边的条带将无法读取，<strong>DISK2或DISK3两个盘中任何一个损坏</strong>，都会导致RAID失效。故障率2/3。<br>3、RAID01比起RAID10有着更快的读写速度</p><h2 id="Raid10-与-Raid5-比较"><a href="#Raid10-与-Raid5-比较" class="headerlink" title="Raid10 与 Raid5 比较"></a>Raid10 与 Raid5 比较</h2><p>1、<a href="http://blog.51cto.com/jiebers/1334486" target="_blank" rel="noopener">RAID5和RAID10，哪种RAID更适合你(上)</a><br>2、<a href="http://blog.51cto.com/jiebers/1334487" target="_blank" rel="noopener">RAID5和RAID10，哪种RAID更适合你(下)</a></p><h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://www.cnblogs.com/ivictor/p/6099807.html" target="_blank" rel="noopener">https://www.cnblogs.com/ivictor/p/6099807.html</a><br><a href="http://blog.jobbole.com/83808/" target="_blank" rel="noopener">http://blog.jobbole.com/83808/</a><br><a href="https://blog.csdn.net/spuer_io/article/details/57080239" target="_blank" rel="noopener">https://blog.csdn.net/spuer_io/article/details/57080239</a><br><a href="https://www.freebsd.org/doc/zh_TW/books/handbook/geom.html" target="_blank" rel="noopener">https://www.freebsd.org/doc/zh_TW/books/handbook/geom.html</a><br><a href="http://blog.51cto.com/jiebers/1334486" target="_blank" rel="noopener">http://blog.51cto.com/jiebers/1334486</a><br><a href="http://blog.51cto.com/jiebers/1334487" target="_blank" rel="noopener">http://blog.51cto.com/jiebers/1334487</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;RAID0-条带化，串連-Striping-硬盘数-gt-2&quot;&gt;&lt;a href=&quot;#RAID0-条带化，串連-Striping-硬盘数-gt-2&quot; class=&quot;headerlink&quot; title=&quot;RAID0 - 条带化，串連 (Striping) 硬盘数&amp;gt
+      
+    
+    </summary>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+    
+      <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>XPath</title>
+    <link href="http://yoursite.com/2018/09/10/XPath/"/>
+    <id>http://yoursite.com/2018/09/10/XPath/</id>
+    <published>2018-09-10T10:44:29.000Z</published>
+    <updated>2018-09-15T16:57:31.541Z</updated>
+    
+    <content type="html"><![CDATA[<p>XPath is a major element in the XSLT standard. XPath can be used to navigate through elements and attributes in an XML document. XPath stands for XML Path Language. XPath uses “path like” syntax to identify and navigate nodes in an XML document.<br><img src="https://app.yinxiang.com/shard/s16/res/50865645-8af3-42e4-a21b-e2f16a3e0509/XPath.png" alt="XPath"></p><p><a href="https://app.yinxiang.com/shard/s16/res/9b3360b6-a6a2-46d7-8b57-aa81777eaa1c/XPath.html" target="_blank" rel="noopener">HtmL文件下载</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;XPath is a major element in the XSLT standard. XPath can be used to navigate through elements and attributes in an XML document. XPath st
+      
+    
+    </summary>
+    
+      <category term="Note" scheme="http://yoursite.com/categories/Note/"/>
+    
+    
+      <category term="Python" scheme="http://yoursite.com/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>Github Pages +Hexo搭建个人博客</title>
@@ -66,24 +142,6 @@
     
     
       <category term="Linux" scheme="http://yoursite.com/tags/Linux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Star</title>
-    <link href="http://yoursite.com/2018/08/08/Star/"/>
-    <id>http://yoursite.com/2018/08/08/Star/</id>
-    <published>2018-08-08T08:29:23.000Z</published>
-    <updated>2018-08-09T03:17:15.082Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-      <category term="test" scheme="http://yoursite.com/categories/test/"/>
-    
-    
-      <category term="Star" scheme="http://yoursite.com/tags/Star/"/>
     
   </entry>
   
