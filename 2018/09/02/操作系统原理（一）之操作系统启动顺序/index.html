@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="操作系统," />
 
 
 
@@ -77,16 +77,18 @@
 
 
 
-<meta name="description" content="攻城狮基地">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Plus Ultra">
-<meta property="og:url" content="http://yoursite.com/tags/Program/index.html">
+<meta name="description" content="操作系统启动顺序参考文章：浅谈操作系统启动过程 1、POST（加电自检）：寻找显卡和执行BIOS机器启动的时执行第一条指令去执行BIOS，将控制权交给BIOS根据CS 和 IP的值就可以找到指令的物理地址0xFFFF:0x0000，也就是0xFFFF0，找到BIOS地址2、BIOS硬件质检然后进行内存寻址：将引导扇区中的Boot.exe，然后加载并跳转到Loader.exe的0x7C00地址（作用">
+<meta name="keywords" content="操作系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统原理（一）之操作系统启动顺序">
+<meta property="og:url" content="http://yoursite.com/2018/09/02/操作系统原理（一）之操作系统启动顺序/index.html">
 <meta property="og:site_name" content="Plus Ultra">
-<meta property="og:description" content="攻城狮基地">
+<meta property="og:description" content="操作系统启动顺序参考文章：浅谈操作系统启动过程 1、POST（加电自检）：寻找显卡和执行BIOS机器启动的时执行第一条指令去执行BIOS，将控制权交给BIOS根据CS 和 IP的值就可以找到指令的物理地址0xFFFF:0x0000，也就是0xFFFF0，找到BIOS地址2、BIOS硬件质检然后进行内存寻址：将引导扇区中的Boot.exe，然后加载并跳转到Loader.exe的0x7C00地址（作用">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-20T13:48:24.409Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Plus Ultra">
-<meta name="twitter:description" content="攻城狮基地">
+<meta name="twitter:title" content="操作系统原理（一）之操作系统启动顺序">
+<meta name="twitter:description" content="操作系统启动顺序参考文章：浅谈操作系统启动过程 1、POST（加电自检）：寻找显卡和执行BIOS机器启动的时执行第一条指令去执行BIOS，将控制权交给BIOS根据CS 和 IP的值就可以找到指令的物理地址0xFFFF:0x0000，也就是0xFFFF0，找到BIOS地址2、BIOS硬件质检然后进行内存寻址：将引导扇区中的Boot.exe，然后加载并跳转到Loader.exe的0x7C00地址（作用">
 
 
 
@@ -116,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Program/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/02/操作系统原理（一）之操作系统启动顺序/"/>
 
 
 
 
 
-  <title>标签: Program | Plus Ultra</title>
+  <title>操作系统原理（一）之操作系统启动顺序 | Plus Ultra</title>
   
 
 
@@ -141,7 +143,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -279,54 +281,216 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Program<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/02/操作系统原理（一）之操作系统启动顺序/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lollipop">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/site-author-image.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Plus Ultra">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/09/16/Sublime Text 3 快捷键/" itemprop="url">
-              
-                <span itemprop="name">Sublime Text 3 快捷键</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">操作系统原理（一）之操作系统启动顺序</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-16T20:12:34+08:00"
-              content="2018-09-16" >
-          09-16
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-02T09:00:20+08:00">
+                2018-09-02
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/操作系统原理/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统原理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/02/操作系统原理（一）之操作系统启动顺序/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/02/操作系统原理（一）之操作系统启动顺序/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/02/操作系统原理（一）之操作系统启动顺序/" class="leancloud_visitors" data-flag-title="操作系统原理（一）之操作系统启动顺序">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"> 总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="操作系统启动顺序"><a href="#操作系统启动顺序" class="headerlink" title="操作系统启动顺序"></a>操作系统启动顺序</h1><p>参考文章：<a href="https://blog.csdn.net/wchstrife/article/details/78879554" target="_blank" rel="noopener">浅谈操作系统启动过程</a></p>
+<p>1、POST（加电自检）：寻找显卡和执行BIOS<br>机器启动的时执行第一条指令去执行BIOS，将控制权交给BIOS<br>根据CS 和 IP的值就可以找到指令的物理地址0xFFFF:0x0000，也就是0xFFFF0，找到BIOS地址<br>2、BIOS硬件质检<br>然后进行内存寻址：将引导扇区中的Boot.exe，然后加载并跳转到Loader.exe的0x7C00地址（作用：加载内核文件）<br>3、进入操作系统</p>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="设备I-O地址与IRQ中断信道"><a href="#设备I-O地址与IRQ中断信道" class="headerlink" title="设备I/O地址与IRQ中断信道"></a>设备I/O地址与IRQ中断信道</h3><p><code>设备I/O地址</code>：设备的门牌号，用于设备组件间的交互通信。不能有两个设备使用相同的地址<br><code>IRQ中断信道</code>：各设备可通过IRQ来告知CPU该设备的工作情况，以方便CPU进行工作分配任务。（sharing IRQ 中断共享技术）</p>
+<h3 id="CMOS-与-BIOS"><a href="#CMOS-与-BIOS" class="headerlink" title="CMOS 与 BIOS"></a>CMOS 与 BIOS</h3><p><code>CMOS</code><br>记录主板上面的重要参数 包括系统时间、CPU电压与频率、各设备的I/O地址和IRQ等<br><code>BIOS</code></p>
+<ul>
+<li>写入主板上某一块闪存或EEPROM的程序，具有断电不易失性，其具有固定的设备地址，开机时执行，加载CMOS当中的参数，并尝试调用存储设别中的引导程序bootloader。</li>
+<li>负责开机的硬件自检与初始化以及将bootloader加载到内存中的0x7c00，然后跳转到0x7c00执行。</li>
+<li>BIOS地址由CS:IP=16*CS+IP(代码段寄存器:指令指针)来表示。</li>
+</ul>
+<p><code>Bootloader</code><br>硬盘中的第一个扇区也叫主引导扇区，一个扇区是512字节，所以bootloader也是512字节。其中有400+个字节是启动代码(CS)，负责完成bootloader需要完成的工作，剩下的字节是记录硬盘分区表。</p>
+<h2 id="寻址机制"><a href="#寻址机制" class="headerlink" title="寻址机制"></a>寻址机制</h2><p>寻址是由段寄存器以及指令指针共同完成。<br>段寄存器：</p>
+<ul>
+<li>CS： code segment，代码段寄存器</li>
+<li>DS：data segment，数据段寄存器</li>
+<li>ES：extra segment，附加段寄存器</li>
+<li>SS：stack segment，堆栈寄存器</li>
+</ul>
+<p>指令寄存器IP(instruction pointer)，即是我们熟悉的程序计数器PC。<br>一个地址由段寄存器:指令指针=16*段寄存器+指令指针来表示<br>因为实模式只有20位寻址，所以最大可调用的空间只有1M</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/操作系统/" rel="tag"># 操作系统</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/01/操作系统原理（序）/" rel="next" title="操作系统原理（序）">
+                <i class="fa fa-chevron-left"></i> 操作系统原理（序）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/03/操作系统原理（二）之中断、异常和系统调用/" rel="prev" title="操作系统原理（二）之中断、异常和系统调用">
+                操作系统原理（二）之中断、异常和系统调用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -334,6 +498,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -354,8 +525,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -461,6 +641,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#操作系统启动顺序"><span class="nav-number">1.</span> <span class="nav-text">操作系统启动顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基础知识"><span class="nav-number">1.1.</span> <span class="nav-text">基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#设备I-O地址与IRQ中断信道"><span class="nav-number">1.1.1.</span> <span class="nav-text">设备I/O地址与IRQ中断信道</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMOS-与-BIOS"><span class="nav-number">1.1.2.</span> <span class="nav-text">CMOS 与 BIOS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寻址机制"><span class="nav-number">1.2.</span> <span class="nav-text">寻址机制</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -614,6 +810,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

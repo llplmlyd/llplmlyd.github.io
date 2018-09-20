@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="操作系统," />
 
 
 
@@ -77,16 +77,18 @@
 
 
 
-<meta name="description" content="攻城狮基地">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Plus Ultra">
-<meta property="og:url" content="http://yoursite.com/tags/Program/index.html">
+<meta name="description" content="进程的定义一个具有一定独立功能的程序在一个数据集合上的一次动态执行过程。 进程的组成 进程包含了正在运行的一个程序的所有状态信息   程序的代码； 程序处理的数据； 程序计数器中的值，指示下一条将运行的指令； 一组通用的寄存器的当前值，堆、栈； （如打开的文件）；   进程与程序的联系 程序是产生进程的基础  程序的每次运行构成不同的进程 进程是程序功能的体现 通过多次执行，一个程序可对应多个进程">
+<meta name="keywords" content="操作系统">
+<meta property="og:type" content="article">
+<meta property="og:title" content="操作系统原理（三）之进程">
+<meta property="og:url" content="http://yoursite.com/2018/09/03/操作系统原理（三）之进程/index.html">
 <meta property="og:site_name" content="Plus Ultra">
-<meta property="og:description" content="攻城狮基地">
+<meta property="og:description" content="进程的定义一个具有一定独立功能的程序在一个数据集合上的一次动态执行过程。 进程的组成 进程包含了正在运行的一个程序的所有状态信息   程序的代码； 程序处理的数据； 程序计数器中的值，指示下一条将运行的指令； 一组通用的寄存器的当前值，堆、栈； （如打开的文件）；   进程与程序的联系 程序是产生进程的基础  程序的每次运行构成不同的进程 进程是程序功能的体现 通过多次执行，一个程序可对应多个进程">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-20T13:49:47.202Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Plus Ultra">
-<meta name="twitter:description" content="攻城狮基地">
+<meta name="twitter:title" content="操作系统原理（三）之进程">
+<meta name="twitter:description" content="进程的定义一个具有一定独立功能的程序在一个数据集合上的一次动态执行过程。 进程的组成 进程包含了正在运行的一个程序的所有状态信息   程序的代码； 程序处理的数据； 程序计数器中的值，指示下一条将运行的指令； 一组通用的寄存器的当前值，堆、栈； （如打开的文件）；   进程与程序的联系 程序是产生进程的基础  程序的每次运行构成不同的进程 进程是程序功能的体现 通过多次执行，一个程序可对应多个进程">
 
 
 
@@ -116,13 +118,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Program/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/03/操作系统原理（三）之进程/"/>
 
 
 
 
 
-  <title>标签: Program | Plus Ultra</title>
+  <title>操作系统原理（三）之进程 | Plus Ultra</title>
   
 
 
@@ -141,7 +143,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -279,54 +281,259 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Program<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/03/操作系统原理（三）之进程/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lollipop">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/site-author-image.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Plus Ultra">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/09/16/Sublime Text 3 快捷键/" itemprop="url">
-              
-                <span itemprop="name">Sublime Text 3 快捷键</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">操作系统原理（三）之进程</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-16T20:12:34+08:00"
-              content="2018-09-16" >
-          09-16
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-03T20:00:20+08:00">
+                2018-09-03
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/操作系统原理/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统原理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/03/操作系统原理（三）之进程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/09/03/操作系统原理（三）之进程/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/09/03/操作系统原理（三）之进程/" class="leancloud_visitors" data-flag-title="操作系统原理（三）之进程">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"> 总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="进程的定义"><a href="#进程的定义" class="headerlink" title="进程的定义"></a>进程的定义</h2><p>一个具有一定独立功能的程序在一个数据集合上的一次动态执行过程。</p>
+<h2 id="进程的组成"><a href="#进程的组成" class="headerlink" title="进程的组成"></a>进程的组成</h2><blockquote>
+<p>进程包含了正在运行的一个程序的所有状态信息</p>
+</blockquote>
+<ul>
+<li>程序的代码；</li>
+<li>程序处理的数据；</li>
+<li>程序计数器中的值，指示下一条将运行的指令；</li>
+<li>一组通用的寄存器的当前值，堆、栈；</li>
+<li>（如打开的文件）； </li>
+</ul>
+<h2 id="进程与程序的联系"><a href="#进程与程序的联系" class="headerlink" title="进程与程序的联系"></a>进程与程序的联系</h2><ol>
+<li>程序是产生进程的基础 </li>
+<li>程序的每次运行构成不同的进程 进程是程序功能的体现</li>
+<li>通过多次执行，一个程序可对应多个进程；</li>
+<li>通过调用关系，一个进程可包括多个程序</li>
+</ol>
+<h2 id="进程和程序的区别"><a href="#进程和程序的区别" class="headerlink" title="进程和程序的区别"></a>进程和程序的区别</h2><p><code>进程是动态的，程序是静态的</code><br>程序是有序代码的集合；进程是程序的执行，进程有核心态/用户态<br><code>进程是暂时的，程序是永久的</code><br>进程是一个状态变化的过程，程序可长久保存<br><code>进程与程序的组成不同</code><br>进程的组成包括程序、数据和进程控制块（即进程状态信息）</p>
+<h2 id="进程的特点"><a href="#进程的特点" class="headerlink" title="进程的特点"></a>进程的特点</h2><p><code>动态性</code>：可动态地创建、结束进程<br><code>并发性</code>：进程可以被独立调度并占用处理机运行<br><code>独立性</code>：不同进程的工作不相互影响<br><code>制约性</code>：因访问共享数据/资源或进程间同步而产生制约</p>
+<h2 id="进程控制块结构"><a href="#进程控制块结构" class="headerlink" title="进程控制块结构"></a>进程控制块结构</h2><p>进程控制块：操作系统管理控制进程运行所用的信息集合<br>操作系统用PCB来描述进程的基本情况以及运行变化的过程，PCB是进程存在的唯一标志</p>
+<h3 id="使用进程控制块"><a href="#使用进程控制块" class="headerlink" title="使用进程控制块"></a>使用进程控制块</h3><p><code>进程的创建</code>：为该进程生成一个PCB<br><code>进程的终止</code>：回收它的PCB<br><code>进程的组织管理</code>：通过PCB的组织管理来实现</p>
+<h3 id="PCB含有以下三大类信息"><a href="#PCB含有以下三大类信息" class="headerlink" title="PCB含有以下三大类信息"></a>PCB含有以下三大类信息</h3><ul>
+<li><p>进程标识信息<br>如本进程的标识，本进程的产生者标识（父进程标识），用户标识</p>
+</li>
+<li><p>处理机状态信息保存区。<br>用户可见寄存器，用户程序可以使用的数据、地址等寄存器<br>控制和状态寄存器，如程序计数器（PC）、程序状态字（PSW）<br>栈指针，过程调用/系统调用/中断处理/和返回时需要用它</p>
+</li>
+<li>保存进程的运行现场信息</li>
+</ul>
+<h3 id="PCB的组织方式"><a href="#PCB的组织方式" class="headerlink" title="PCB的组织方式"></a>PCB的组织方式</h3><p><code>链表</code><br>同一状态的进程其PCB成一链表，多个状态对应多个不同的链表<br>各状态的进程形成不同的链表：就绪链表、阻塞链表<br><code>索引表</code><br>同一状态的进程归入一个index表（有index指向PCB），多个状态对应多个不同的index表<br>各状态的进程形成不同的索引表：就绪索引表、阻塞索引表</p>
+<h2 id="进程的生命周期管理"><a href="#进程的生命周期管理" class="headerlink" title="进程的生命周期管理"></a>进程的生命周期管理</h2><p><code>进程创建</code><br>系统初始化时<br>用户请求创建一个新进程<br>正在运行的进程执行了创建进程的系统调用<br><code>进程运行</code><br>内核选择一个就绪的进程<br><code>进程等待</code><br>进程只能自己阻塞自己，因为只有进程自身才能知道何时需要等待某种事件的发生<br><code>进程唤醒</code><br>将该进程的PCB插入到就绪队列 且 进程只能被别的进程或操作系统唤醒<br><code>进程结束</code><br>正常退出（自愿的）<br>错误退出（自愿的）<br>致命错误（强制性的）<br>被其他进程所杀（强制性的)</p>
+<h2 id="进程状态变化模型"><a href="#进程状态变化模型" class="headerlink" title="进程状态变化模型"></a>进程状态变化模型</h2><h3 id="基本状态"><a href="#基本状态" class="headerlink" title="基本状态"></a>基本状态</h3><p><code>运行状态（Running）</code><br>当一个进程正在处理机上运行时<br><code>就绪状态（Ready）</code><br>一个进程获得了除处理机之外的一切所需资源，一旦得到处理机即可运行<br><code>等待状态</code>（又称阻塞状态 Blocked）<br>一个进程正在等待某一时间而暂停运行时。如等待某资源，等待输入/输出完成</p>
+<h3 id="基本过程（状态点）"><a href="#基本过程（状态点）" class="headerlink" title="基本过程（状态点）"></a>基本过程（状态点）</h3><p><code>创建状态（New）</code><br>一个进程正在被创建，还没被转到就绪状态之前的状态<br><code>结束状态（Exit）</code><br>一个进程正在从系统中消失时的状态，这是因为进程结束或由于其他原因。</p>
+<h3 id="可能的状态变化如下"><a href="#可能的状态变化如下" class="headerlink" title="可能的状态变化如下"></a>可能的状态变化如下</h3><ul>
+<li>Null -&gt; New：一个新进程被产生出来执行一个程序 </li>
+<li>New -&gt; Ready：当进程被创建完成并初始化后，一切就绪准备运行时，变为就绪状态（时间很短） </li>
+<li>Ready -&gt; Running：处于就绪状态的进程被进程调度程序选中后，就分配到处理机上来运行 </li>
+<li>Running -&gt; Ready：处于运行状态的进程在其运行过程中，由于分配给它的处理机时间片用完而让出处理机（操作系统完成） </li>
+<li>Running -&gt; Blocked：当进程请求某样东西且必须等待时<br>Blocked -&gt; Ready：当进程要等待某事件到来时，它从阻塞状态变到就绪状态</li>
+</ul>
+<h2 id="进程挂起"><a href="#进程挂起" class="headerlink" title="进程挂起"></a>进程挂起</h2><p>进程没有占用内存空间。处在挂起状态的进程映像在外存中</p>
+<h3 id="挂起状态"><a href="#挂起状态" class="headerlink" title="挂起状态"></a>挂起状态</h3><p><code>阻塞挂起状态（Blocked-suspend）</code><br>进程在外存并等待某事件的出现<br><code>就绪挂起状态（Ready-suspend）</code><br>进程在外存，但只要进入内存，即可运行；</p>
+<h3 id="状态转换"><a href="#状态转换" class="headerlink" title="状态转换"></a>状态转换</h3><p><strong>挂起（suspend）：内存→外存</strong></p>
+<ul>
+<li>阻塞到阻塞挂起： 没有进程处于就绪状态或就绪状态进程要求更多内存资源时，会进行这种转换，以提交新进程或运行就绪进程。</li>
+<li>就绪到就绪挂起：当有高优先级阻塞（系统认为很快就绪的）进程和低优先级就绪进程时，系统会选择挂起低优先级就绪进程。</li>
+<li>运行到就绪挂起：对抢先式分时系统，当有高优先级阻塞挂起进程因事件出现而进入就绪挂起时，系统可能会把运行进程转到就绪挂起状态。</li>
+</ul>
+<p><strong>转换后仍在外存</strong></p>
+<ul>
+<li>阻塞挂起到就绪挂起：当有阻塞挂起进程因相关事件出现时，系统会把阻塞挂起进程转换为就绪挂起进程。</li>
+</ul>
+<p><strong>解挂/激活（Activate）：外存→内存</strong> </p>
+<ul>
+<li>就绪挂起到就绪：没有就绪进程或挂起就绪进程优先级高于就绪进程时，会进行这种转换。</li>
+<li>阻塞挂起到阻塞：当一个进程释放足够多内存时，系统会把一个高优先级阻塞挂起（系统认为会很快出现所等待的事件）进程转换为阻塞进程。</li>
+</ul>
+<h2 id="状态队列"><a href="#状态队列" class="headerlink" title="状态队列"></a>状态队列</h2><ul>
+<li>由操作系统来维护一组队列，用来表示系统当中所有进程的当前状态；</li>
+<li>不同的状态分别用不同的队列表示（就绪队列、各种类型的阻塞队列）；</li>
+<li>每个进程的PCB都根据它的状态加入到相应的队列当中，当一个进程的状态发生变化时，它的PCB从一个状态队列中脱离出来，加入到另外一个队列。</li>
+</ul>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/操作系统/" rel="tag"># 操作系统</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/03/操作系统原理（二）之中断、异常和系统调用/" rel="next" title="操作系统原理（二）之中断、异常和系统调用">
+                <i class="fa fa-chevron-left"></i> 操作系统原理（二）之中断、异常和系统调用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/10/“淘宝技术这十年”/" rel="prev" title="“淘宝技术这十年”">
+                “淘宝技术这十年” <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -334,6 +541,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -354,8 +568,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -461,6 +684,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#进程的定义"><span class="nav-number">1.</span> <span class="nav-text">进程的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程的组成"><span class="nav-number">2.</span> <span class="nav-text">进程的组成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程与程序的联系"><span class="nav-number">3.</span> <span class="nav-text">进程与程序的联系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程和程序的区别"><span class="nav-number">4.</span> <span class="nav-text">进程和程序的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程的特点"><span class="nav-number">5.</span> <span class="nav-text">进程的特点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程控制块结构"><span class="nav-number">6.</span> <span class="nav-text">进程控制块结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用进程控制块"><span class="nav-number">6.1.</span> <span class="nav-text">使用进程控制块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PCB含有以下三大类信息"><span class="nav-number">6.2.</span> <span class="nav-text">PCB含有以下三大类信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PCB的组织方式"><span class="nav-number">6.3.</span> <span class="nav-text">PCB的组织方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程的生命周期管理"><span class="nav-number">7.</span> <span class="nav-text">进程的生命周期管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程状态变化模型"><span class="nav-number">8.</span> <span class="nav-text">进程状态变化模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本状态"><span class="nav-number">8.1.</span> <span class="nav-text">基本状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本过程（状态点）"><span class="nav-number">8.2.</span> <span class="nav-text">基本过程（状态点）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可能的状态变化如下"><span class="nav-number">8.3.</span> <span class="nav-text">可能的状态变化如下</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程挂起"><span class="nav-number">9.</span> <span class="nav-text">进程挂起</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#挂起状态"><span class="nav-number">9.1.</span> <span class="nav-text">挂起状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态转换"><span class="nav-number">9.2.</span> <span class="nav-text">状态转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#状态队列"><span class="nav-number">10.</span> <span class="nav-text">状态队列</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -614,6 +853,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
